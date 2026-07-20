@@ -2026,9 +2026,9 @@
       ],
       "contractions": [
         {
-          "variableName": "WND_TDZ",
-          "text": "WND TDZ",
-          "voice": "WIND TOUCH DOWN ZONE"
+          "variableName": "TDZ",
+          "text": "TDZ",
+          "voice": "TOUCH DOWN ZONE"
         },
         {
           "variableName": "START_OF_DATA",
@@ -2174,6 +2174,16 @@
           "variableName": "CDM",
           "text": "CDM IN PROGRESS, VISIT VATS.IM/VDGS FOR PUSH-BACK TIME",
           "voice": "COLLABORATIVE DECISION MAKING IN PROGRESS, VISIT V A TS. DOT. I M. SLASH VDGS FOR YOUR PUSHBACKTIME."
+        },
+        {
+          "variableName": "EXP_NAV",
+          "text": "EXP NAV",
+          "voice": "EXPECT OWN NAVIGATION  FOR"
+        },
+        {
+          "variableName": "APPROACH",
+          "text": "",
+          "voice": "APPROACH."
         }
       ],
       "airportConditionDefinitions": [
@@ -4229,9 +4239,9 @@
       ],
       "contractions": [
         {
-          "variableName": "WND_TDZ",
-          "text": "WND TDZ",
-          "voice": "WIND TOUCH DOWN ZONE"
+          "variableName": "TDZ",
+          "text": "TDZ",
+          "voice": "TOUCH DOWN ZONE"
         },
         {
           "variableName": "START_OF_DATA",
@@ -4377,6 +4387,16 @@
           "variableName": "CDM",
           "text": "CDM IN PROGRESS, VISIT VATS.IM/VDGS FOR PUSH-BACK TIME",
           "voice": "COLLABORATIVE DECISION MAKING IN PROGRESS, VISIT V A TS. DOT. I M. SLASH VDGS FOR YOUR PUSHBACKTIME."
+        },
+        {
+          "variableName": "EXP_NAV",
+          "text": "EXP NAV",
+          "voice": "EXPECT OWN NAVIGATION  FOR"
+        },
+        {
+          "variableName": "APPROACH",
+          "text": "",
+          "voice": "APPROACH."
         }
       ],
       "airportConditionDefinitions": [
@@ -6431,9 +6451,9 @@
       ],
       "contractions": [
         {
-          "variableName": "WND_TDZ",
-          "text": "WND TDZ",
-          "voice": "WIND TOUCH DOWN ZONE"
+          "variableName": "TDZ",
+          "text": "TDZ",
+          "voice": "TOUCH DOWN ZONE"
         },
         {
           "variableName": "START_OF_DATA",
@@ -6579,6 +6599,16 @@
           "variableName": "CDM",
           "text": "CDM IN PROGRESS, VISIT VATS.IM/VDGS FOR PUSH-BACK TIME",
           "voice": "COLLABORATIVE DECISION MAKING IN PROGRESS, VISIT V A TS. DOT. I M. SLASH VDGS FOR YOUR PUSHBACKTIME."
+        },
+        {
+          "variableName": "EXP_NAV",
+          "text": "EXP NAV",
+          "voice": "EXPECT OWN NAVIGATION  FOR"
+        },
+        {
+          "variableName": "APPROACH",
+          "text": "",
+          "voice": "APPROACH."
         }
       ],
       "airportConditionDefinitions": [
