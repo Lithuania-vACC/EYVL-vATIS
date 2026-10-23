@@ -2,7 +2,7 @@
   "name": "EYVL",
   "id": "610bc913-f11d-4364-9198-75be984a8f56",
   "updateUrl": "https://raw.githubusercontent.com/Lithuania-vACC/EYVL-vATIS/refs/heads/main/EYVL.json",
-  "updateSerial": 2026080401,
+  "updateSerial": 2026102301,
   "stations": [
     {
       "id": "5e651c57-5cec-427d-8050-6cf277899280",
@@ -18,7 +18,7 @@
         "observationTime": {
           "template": {
             "text": "{time}Z",
-            "voice": "TIME {time}."
+            "voice": "AT {time}."
           }
         },
         "surfaceWind": {
@@ -1961,7 +1961,7 @@
           "name": "DEP:08 ARR:ILSZ08",
           "airportConditions": "",
           "notams": "",
-          "template": "@EYKA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV ILS @Z @APPROACH RWY08 FOR ARR AND DEP\r\n[TL]\r\nWIND RWY08 [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
+          "template": "@EYKA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV ILS @Z @APPROACH ARR RWY08 DEP RWY08\r\n[TL]\r\nWIND RWY08 @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -1978,7 +1978,7 @@
           "name": "DEP:26 ARR:ILSZ26",
           "airportConditions": "",
           "notams": "",
-          "template": "@EYKA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV ILS @Z OR ILS @Y @APPROACH RWY26 FOR ARR AND DEP\r\n[TL]\r\nWIND RWY26 [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
+          "template": "@EYKA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV ILS @Z @APPROACH ARR RWY26 DEP RWY26\r\n[TL]\r\nWIND RWY26 @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -1995,7 +1995,7 @@
           "name": "DEP:08 ARR:SpecialAPP08",
           "airportConditions": "",
           "notams": "",
-          "template": "@EYKA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV [ARPT_COND] @APPROACH RWY08 FOR ARR AND DEP\r\n[TL]\r\nWIND RWY08 [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
+          "template": "@EYKA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV [ARPT_COND] @APPROACH ARR RWY08 DEP RWY08\r\n[TL]\r\nWIND RWY08 @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -2010,9 +2010,9 @@
           "id": "9bf5a433-297a-4107-ad35-7b9c2022c66a",
           "ordinal": 4,
           "name": "DEP:26 ARR:SpecialAPP26",
-          "airportConditions": "ILS Y OR RNP",
+          "airportConditions": "",
           "notams": "",
-          "template": "@EYKA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV [ARPT_COND] @APPROACH RWY26 FOR ARR AND DEP\r\n[TL]\r\nWIND RWY26 [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
+          "template": "@EYKA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV [ARPT_COND] @APPROACH ARR RWY26 DEP RWY26\r\n[TL]\r\nWIND RWY26 @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -2038,7 +2038,7 @@
         {
           "variableName": "END_OF_DATA",
           "text": "CONFIRM ATIS [ATIS_CODE]",
-          "voice": "ACKNOWLEDGE INFORMATION [ATIS_CODE] ON FIRST CONTACT"
+          "voice": "ADVISE ON INITIAL CONTACT YOU HAVE INFORMATION [ATIS_CODE]"
         },
         {
           "variableName": "EYKA_ATIS",
@@ -2101,11 +2101,6 @@
           "voice": "TURBULENCE"
         },
         {
-          "variableName": "LVP",
-          "text": "LOW VIS PROCEDURES IN OPS",
-          "voice": "LOW VISIBILITY PROCEDURES IN OPERATION"
-        },
-        {
           "variableName": "COND",
           "text": "COND",
           "voice": "CONDITION"
@@ -2166,7 +2161,7 @@
           "voice": "ZULU"
         },
         {
-          "variableName": "LVP",
+          "variableName": "LVP_AUTO",
           "text": "LVP IN FORCE",
           "voice": "LOW VISIBILITY PROCEDURES IN FORCE."
         },
@@ -2177,8 +2172,8 @@
         },
         {
           "variableName": "EXP_NAV",
-          "text": "EXP",
-          "voice": "EXPECT"
+          "text": "EXP NAV",
+          "voice": "EXPECT OWN NAVIGATION  FOR"
         },
         {
           "variableName": "APPROACH",
@@ -2186,6 +2181,7 @@
           "voice": "APPROACH."
         }
       ],
+      "patterns": [],
       "airportConditionDefinitions": [
         {
           "text": "ILS @Z",
@@ -2215,9 +2211,10 @@
       ],
       "notamDefinitions": [
         {
-          "text": "@LVP",
+          "text": "@LVP_AUTO",
           "ordinal": 1,
-          "enabled": false
+          "weatherCondition": "rvr < 600m OR ceiling <= 200m",
+          "enabled": true
         }
       ]
     },
@@ -4177,7 +4174,7 @@
           "name": "DEP:01 ARR:RNP01",
           "airportConditions": "",
           "notams": "",
-          "template": "@EYPA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV RNP @APPROACH ARR RWY01 DEP RWY01\r\n[TL]\r\nWIND RWY19 @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
+          "template": "",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -4379,7 +4376,7 @@
           "voice": "ZULU"
         },
         {
-          "variableName": "LVP",
+          "variableName": "LVP_AUTO",
           "text": "LVP Take-off Procedures are in force",
           "voice": "Low Visibility Take-off Procedures are in force."
         },
@@ -4399,6 +4396,7 @@
           "voice": "APPROACH."
         }
       ],
+      "patterns": [],
       "airportConditionDefinitions": [
         {
           "text": "ILS",
@@ -4423,9 +4421,10 @@
       ],
       "notamDefinitions": [
         {
-          "text": "@LVP",
+          "text": "@LVP_AUTO",
           "ordinal": 1,
-          "enabled": false
+          "weatherCondition": "rvr <= 350m",
+          "enabled": true
         }
       ]
     },
@@ -6611,6 +6610,7 @@
           "voice": "APPROACH."
         }
       ],
+      "patterns": [],
       "airportConditionDefinitions": [
         {
           "text": "ILS",
@@ -6630,9 +6630,10 @@
       ],
       "notamDefinitions": [
         {
-          "text": "@LVP",
+          "text": "@LVP_AUTO",
           "ordinal": 1,
-          "enabled": false
+          "weatherCondition": "rvr < 550m",
+          "enabled": true
         }
       ]
     },
@@ -8798,7 +8799,7 @@
           "voice": "COLLABORATIVE DECISION MAKING IN PROGRESS, VISIT V A TS. DOT. I M. SLASH VDGS FOR YOUR PUSHBACKTIME."
         },
         {
-          "variableName": "LVP",
+          "variableName": "LVP_AUTO",
           "text": "LVP CAT 2 in Operation",
           "voice": "Low Visibility Procedures CAT 2 in Operation."
         },
@@ -8813,6 +8814,7 @@
           "voice": "APPROACH."
         }
       ],
+      "patterns": [],
       "airportConditionDefinitions": [
         {
           "text": "ILS @Z",
@@ -8842,9 +8844,10 @@
       ],
       "notamDefinitions": [
         {
-          "text": "@LVP",
+          "text": "@LVP_AUTO",
           "ordinal": 1,
-          "enabled": false
+          "weatherCondition": "ceiling < 200ft OR rvr <= 600m",
+          "enabled": true
         }
       ]
     }
