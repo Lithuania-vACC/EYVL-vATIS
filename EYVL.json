@@ -2,7 +2,7 @@
   "name": "EYVL",
   "id": "610bc913-f11d-4364-9198-75be984a8f56",
   "updateUrl": "https://raw.githubusercontent.com/Lithuania-vACC/EYVL-vATIS/refs/heads/main/EYVL.json",
-  "updateSerial": 2026102301,
+  "updateSerial": 2026102302,
   "stations": [
     {
       "id": "5e651c57-5cec-427d-8050-6cf277899280",
@@ -18,11 +18,12 @@
         "observationTime": {
           "template": {
             "text": "{time}Z",
-            "voice": "AT {time}."
+            "voice": "TIME {time}."
           }
         },
         "surfaceWind": {
           "speakLeadingZero": false,
+          "speakWindSpeedGroupFormat": false,
           "magneticVariation": {
             "enabled": false,
             "magneticDegrees": 0
@@ -63,6 +64,58 @@
               "text": "{wind_dir} DEG {wind_spd} KT",
               "voice": "{wind_dir} DEGREES {wind_spd} {wind_unit}"
             }
+          },
+          "variableFormats": {
+            "wind_dir": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            },
+            "wind_spd": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            },
+            "wind_gust": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            },
+            "wind_vmin": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            },
+            "wind_vmax": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            }
           }
         },
         "visibility": {
@@ -74,19 +127,70 @@
           "southWest": "to the south-west",
           "west": "to the west",
           "northWest": "to the north-west",
+          "directionText": {
+            "N": "N",
+            "NE": "NE",
+            "E": "E",
+            "SE": "SE",
+            "S": "S",
+            "SW": "SW",
+            "W": "W",
+            "NW": "NW"
+          },
           "unlimitedVisibilityVoice": "visibility 10 kilometers or more.",
           "unlimitedVisibilityText": "VIS 10KM",
+          "cavokVoice": "CAVOK",
+          "cavokText": "CAVOK",
           "includeVisibilitySuffix": true,
           "metersCutoff": 5000,
+          "metersUnitVoice": "meters",
+          "kilometersUnitVoice": "kilometers",
+          "fractionVoice": {
+            "M1/4SM": "less than one quarter.",
+            "1 1/8SM": "one and one eighth.",
+            "1 1/4SM": "one and one quarter.",
+            "1 3/8SM": "one and three eighths.",
+            "1 1/2SM": "one and one half.",
+            "1 5/8SM": "one and five eighths.",
+            "1 3/4SM": "one and three quarters.",
+            "1 7/8SM": "one and seven eighths.",
+            "2 1/4SM": "two and one quarter.",
+            "2 1/2SM": "two and one half.",
+            "2 3/4SM": "two and three quarters.",
+            "1/16SM": "one sixteenth.",
+            "1/8SM": "one eighth.",
+            "3/16SM": "three sixteenths.",
+            "1/4SM": "one quarter.",
+            "5/16SM": "five sixteenths.",
+            "3/8SM": "three eighths.",
+            "1/2SM": "one half.",
+            "5/8SM": "five eighths.",
+            "3/4SM": "three quarters.",
+            "7/8SM": "seven eighths."
+          },
           "template": {
             "text": "VIS {visibility}M",
             "voice": "VISIBILITY {visibility}."
           }
         },
         "runwayVisualRange": {
+          "spokenText": "R-V-R",
           "neutralTendency": "Meters",
           "goingUpTendency": "Meters",
           "goingDownTendency": "Meters",
+          "tendencyText": {
+            "N": "N",
+            "U": "U",
+            "D": "D"
+          },
+          "voicePhrases": {
+            "Less than": "less than {value}",
+            "More than": "more than {value}",
+            "Variable": "variable between {min} and {max}",
+            "Variable, less than": "variable from less than {min} to {max}",
+            "Variable to greater than": "{min} variable to greater than {max}",
+            "Variable, less than to greater than": "variable from less than {min} to greater than {max}"
+          },
           "template": {}
         },
         "presentWeather": {
@@ -1801,6 +1905,10 @@
             "text": "undetermined",
             "voice": "undetermined"
           },
+          "undeterminedVerticalVisibility": {
+            "text": "undetermined",
+            "voice": "undetermined"
+          },
           "automaticCbDetection": {
             "text": "//////CB",
             "voice": "RADAR DETECTED C-B CLOUDS"
@@ -1841,11 +1949,29 @@
             "SKC": {
               "text": "SKC",
               "voice": "sky clear"
+            },
+            "UND": {
+              "text": "{amount}///{convective}",
+              "voice": "{amount} cloud height not available {convective}"
             }
           },
           "convectiveTypes": {
             "CB": "cumulonimbus",
             "TCU": "towering cumulus"
+          },
+          "convectiveTypesText": {
+            "CB": "CB",
+            "TCU": "TCU"
+          },
+          "altitudeFormat": {
+            "text": {
+              "style": "Default",
+              "suffix": ""
+            },
+            "voice": {
+              "style": "Default",
+              "suffix": ""
+            }
           },
           "template": {
             "text": "CLD {clouds}",
@@ -1855,6 +1981,16 @@
         "temperature": {
           "usePlusPrefix": false,
           "speakLeadingZero": false,
+          "format": {
+            "text": {
+              "style": "Default",
+              "suffix": ""
+            },
+            "voice": {
+              "style": "Default",
+              "suffix": ""
+            }
+          },
           "template": {
             "text": "T {temp:#}",
             "voice": "TEMPERATURE {temp}."
@@ -1863,6 +1999,16 @@
         "dewpoint": {
           "usePlusPrefix": false,
           "speakLeadingZero": false,
+          "format": {
+            "text": {
+              "style": "Default",
+              "suffix": ""
+            },
+            "voice": {
+              "style": "Default",
+              "suffix": ""
+            }
+          },
           "template": {
             "text": "DP {dewpoint:#}",
             "voice": "DEW POINT {dewpoint}."
@@ -1870,6 +2016,58 @@
         },
         "altimeter": {
           "pronounceDecimal": false,
+          "variableFormats": {
+            "altimeter": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            },
+            "text": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            },
+            "inhg": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            },
+            "hpa": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            },
+            "qfe": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            }
+          },
           "template": {
             "text": "QNH {altimeter|hpa}",
             "voice": "QNH {altimeter|hpa}"
@@ -1891,6 +2089,103 @@
           "runwayVoice": "Wind Shear Runway {Runway}",
           "allRunwayText": "WS ALL RWY",
           "allRunwayVoice": "Wind Shear All Runways",
+          "template": {}
+        },
+        "runwayCondition": {
+          "textTemplate": "RWY {runway} {deposit} {depth} {friction}",
+          "voiceTemplate": "Runway {runway} {deposit} {depth} {friction}",
+          "terms": {
+            "ClearAndDry": {
+              "text": "CLEAR AND DRY",
+              "voice": "clear and dry"
+            },
+            "Damp": {
+              "text": "DAMP",
+              "voice": "damp"
+            },
+            "Wet": {
+              "text": "WET",
+              "voice": "wet"
+            },
+            "Rime": {
+              "text": "COVERED WITH RIME",
+              "voice": "covered with rime"
+            },
+            "DrySnow": {
+              "text": "COVERED WITH DRY SNOW",
+              "voice": "covered with dry snow"
+            },
+            "WetSnow": {
+              "text": "COVERED WITH WET SNOW",
+              "voice": "covered with wet snow"
+            },
+            "Slush": {
+              "text": "COVERED WITH SLUSH",
+              "voice": "covered with slush"
+            },
+            "Ice": {
+              "text": "COVERED WITH ICE",
+              "voice": "covered with ice"
+            },
+            "CompactedSnow": {
+              "text": "COVERED WITH COMPACTED SNOW",
+              "voice": "covered with compacted snow"
+            },
+            "FrozenRuts": {
+              "text": "FROZEN RUTS",
+              "voice": "frozen ruts"
+            },
+            "NotOperational": {
+              "text": "NOT OPERATIONAL DUE TO DEPOSITS",
+              "voice": "not operational due to deposits"
+            },
+            "DepthMillimeter": {
+              "text": "{value}MM",
+              "voice": "{value} millimeter"
+            },
+            "DepthMillimeters": {
+              "text": "{value}MM",
+              "voice": "{value} millimeters"
+            },
+            "DepthCentimeters": {
+              "text": "{value}CM",
+              "voice": "{value} centimeters"
+            },
+            "FrictionGood": {
+              "text": "FRICTION GOOD",
+              "voice": "estimated surface friction good"
+            },
+            "FrictionMediumToGood": {
+              "text": "FRICTION MEDIUM TO GOOD",
+              "voice": "estimated surface friction medium to good"
+            },
+            "FrictionMedium": {
+              "text": "FRICTION MEDIUM",
+              "voice": "estimated surface friction medium"
+            },
+            "FrictionMediumToPoor": {
+              "text": "FRICTION MEDIUM TO POOR",
+              "voice": "estimated surface friction medium to poor"
+            },
+            "FrictionPoor": {
+              "text": "FRICTION POOR",
+              "voice": "estimated surface friction poor"
+            },
+            "FrictionUnreliable": {
+              "text": "FRICTION UNRELIABLE",
+              "voice": "estimated surface friction unreliable"
+            }
+          },
+          "template": {}
+        },
+        "remarkWind": {
+          "textTemplate": "WIND {height}FT {dir}/{speed}KT",
+          "voiceTemplate": "Wind {height} feet {dir} degrees {speed} knots",
+          "template": {}
+        },
+        "autoObservation": {
+          "textTemplate": "AUTO",
+          "voiceTemplate": "Automatic Observation",
           "template": {}
         },
         "transitionLevel": {
@@ -1947,10 +2242,14 @@
       },
       "notamsBeforeFreeText": true,
       "airportConditionsBeforeFreeText": true,
+      "notamsSeparator": ". ",
+      "airportConditionsSeparator": ". ",
       "frequency": 129055000,
       "useDecimalTerminology": true,
+      "randomizeAtisLetterOnConnect": false,
       "atisVoice": {
         "useTextToSpeech": true,
+        "useWavPack": false,
         "voice": "US Female",
         "speechRate": 120
       },
@@ -1961,7 +2260,7 @@
           "name": "DEP:08 ARR:ILSZ08",
           "airportConditions": "",
           "notams": "",
-          "template": "@EYKA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV ILS @Z @APPROACH ARR RWY08 DEP RWY08\r\n[TL]\r\nWIND RWY08 @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
+          "template": "@EYKA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV ILS @Z @APPROACH RWY08 FOR ARR AND DEP\r\n[TL]\r\nWIND RWY08 [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -1978,7 +2277,7 @@
           "name": "DEP:26 ARR:ILSZ26",
           "airportConditions": "",
           "notams": "",
-          "template": "@EYKA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV ILS @Z @APPROACH ARR RWY26 DEP RWY26\r\n[TL]\r\nWIND RWY26 @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
+          "template": "@EYKA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV ILS @Z OR ILS @Y @APPROACH RWY26 FOR ARR AND DEP\r\n[TL]\r\nWIND RWY26 [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -1995,7 +2294,7 @@
           "name": "DEP:08 ARR:SpecialAPP08",
           "airportConditions": "",
           "notams": "",
-          "template": "@EYKA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV [ARPT_COND] @APPROACH ARR RWY08 DEP RWY08\r\n[TL]\r\nWIND RWY08 @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
+          "template": "@EYKA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV [ARPT_COND] @APPROACH RWY08 FOR ARR AND DEP\r\n[TL]\r\nWIND RWY08 [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -2012,7 +2311,7 @@
           "name": "DEP:26 ARR:SpecialAPP26",
           "airportConditions": "",
           "notams": "",
-          "template": "@EYKA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV [ARPT_COND] @APPROACH ARR RWY26 DEP RWY26\r\n[TL]\r\nWIND RWY26 @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
+          "template": "@EYKA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV [ARPT_COND] @APPROACH RWY26 FOR ARR AND DEP\r\n[TL]\r\nWIND RWY26 [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -2038,7 +2337,7 @@
         {
           "variableName": "END_OF_DATA",
           "text": "CONFIRM ATIS [ATIS_CODE]",
-          "voice": "ADVISE ON INITIAL CONTACT YOU HAVE INFORMATION [ATIS_CODE]"
+          "voice": "ACKNOWLEDGE INFORMATION [ATIS_CODE] ON FIRST CONTACT"
         },
         {
           "variableName": "EYKA_ATIS",
@@ -2099,6 +2398,11 @@
           "variableName": "TURB",
           "text": "TURB",
           "voice": "TURBULENCE"
+        },
+        {
+          "variableName": "LVP",
+          "text": "LOW VIS PROCEDURES IN OPS",
+          "voice": "LOW VISIBILITY PROCEDURES IN OPERATION"
         },
         {
           "variableName": "COND",
@@ -2172,8 +2476,8 @@
         },
         {
           "variableName": "EXP_NAV",
-          "text": "EXP NAV",
-          "voice": "EXPECT OWN NAVIGATION  FOR"
+          "text": "EXP",
+          "voice": "EXPECT"
         },
         {
           "variableName": "APPROACH",
@@ -2196,7 +2500,7 @@
         {
           "text": "RNP",
           "ordinal": 3,
-          "enabled": false
+          "enabled": true
         },
         {
           "text": "VOR @Y",
@@ -2214,9 +2518,14 @@
           "text": "@LVP_AUTO",
           "ordinal": 1,
           "weatherCondition": "rvr < 600m OR ceiling <= 200m",
-          "enabled": true
+          "enabled": false
         }
-      ]
+      ],
+      "datisTextReplacements": [],
+      "datisPrependAirportConditions": "",
+      "datisAppendAirportConditions": "",
+      "datisPrependNotams": "",
+      "datisAppendNotams": ""
     },
     {
       "id": "63d64ab5-145e-46c5-886f-e1c431f151e3",
@@ -2237,6 +2546,7 @@
         },
         "surfaceWind": {
           "speakLeadingZero": false,
+          "speakWindSpeedGroupFormat": false,
           "magneticVariation": {
             "enabled": false,
             "magneticDegrees": 0
@@ -2277,6 +2587,58 @@
               "text": "{wind_dir} DEG {wind_spd} KT",
               "voice": "{wind_dir} DEGREES {wind_spd} {wind_unit}"
             }
+          },
+          "variableFormats": {
+            "wind_dir": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            },
+            "wind_spd": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            },
+            "wind_gust": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            },
+            "wind_vmin": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            },
+            "wind_vmax": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            }
           }
         },
         "visibility": {
@@ -2288,19 +2650,70 @@
           "southWest": "to the south-west",
           "west": "to the west",
           "northWest": "to the north-west",
+          "directionText": {
+            "N": "N",
+            "NE": "NE",
+            "E": "E",
+            "SE": "SE",
+            "S": "S",
+            "SW": "SW",
+            "W": "W",
+            "NW": "NW"
+          },
           "unlimitedVisibilityVoice": "visibility 10 kilometers or more.",
           "unlimitedVisibilityText": "VIS 10KM",
+          "cavokVoice": "CAVOK",
+          "cavokText": "CAVOK",
           "includeVisibilitySuffix": true,
           "metersCutoff": 5000,
+          "metersUnitVoice": "meters",
+          "kilometersUnitVoice": "kilometers",
+          "fractionVoice": {
+            "M1/4SM": "less than one quarter.",
+            "1 1/8SM": "one and one eighth.",
+            "1 1/4SM": "one and one quarter.",
+            "1 3/8SM": "one and three eighths.",
+            "1 1/2SM": "one and one half.",
+            "1 5/8SM": "one and five eighths.",
+            "1 3/4SM": "one and three quarters.",
+            "1 7/8SM": "one and seven eighths.",
+            "2 1/4SM": "two and one quarter.",
+            "2 1/2SM": "two and one half.",
+            "2 3/4SM": "two and three quarters.",
+            "1/16SM": "one sixteenth.",
+            "1/8SM": "one eighth.",
+            "3/16SM": "three sixteenths.",
+            "1/4SM": "one quarter.",
+            "5/16SM": "five sixteenths.",
+            "3/8SM": "three eighths.",
+            "1/2SM": "one half.",
+            "5/8SM": "five eighths.",
+            "3/4SM": "three quarters.",
+            "7/8SM": "seven eighths."
+          },
           "template": {
             "text": "VIS {visibility}M",
             "voice": "VISIBILITY {visibility}."
           }
         },
         "runwayVisualRange": {
+          "spokenText": "R-V-R",
           "neutralTendency": "Meters",
           "goingUpTendency": "Meters",
           "goingDownTendency": "Meters",
+          "tendencyText": {
+            "N": "N",
+            "U": "U",
+            "D": "D"
+          },
+          "voicePhrases": {
+            "Less than": "less than {value}",
+            "More than": "more than {value}",
+            "Variable": "variable between {min} and {max}",
+            "Variable, less than": "variable from less than {min} to {max}",
+            "Variable to greater than": "{min} variable to greater than {max}",
+            "Variable, less than to greater than": "variable from less than {min} to greater than {max}"
+          },
           "template": {}
         },
         "presentWeather": {
@@ -4015,6 +4428,10 @@
             "text": "undetermined",
             "voice": "undetermined"
           },
+          "undeterminedVerticalVisibility": {
+            "text": "undetermined",
+            "voice": "undetermined"
+          },
           "automaticCbDetection": {
             "text": "//////CB",
             "voice": "RADAR DETECTED C-B CLOUDS"
@@ -4055,11 +4472,29 @@
             "SKC": {
               "text": "SKC",
               "voice": "sky clear"
+            },
+            "UND": {
+              "text": "{amount}///{convective}",
+              "voice": "{amount} cloud height not available {convective}"
             }
           },
           "convectiveTypes": {
             "CB": "cumulonimbus",
             "TCU": "towering cumulus"
+          },
+          "convectiveTypesText": {
+            "CB": "CB",
+            "TCU": "TCU"
+          },
+          "altitudeFormat": {
+            "text": {
+              "style": "Default",
+              "suffix": ""
+            },
+            "voice": {
+              "style": "Default",
+              "suffix": ""
+            }
           },
           "template": {
             "text": "CLD {clouds}",
@@ -4069,6 +4504,16 @@
         "temperature": {
           "usePlusPrefix": false,
           "speakLeadingZero": false,
+          "format": {
+            "text": {
+              "style": "Default",
+              "suffix": ""
+            },
+            "voice": {
+              "style": "Default",
+              "suffix": ""
+            }
+          },
           "template": {
             "text": "T {temp:#}",
             "voice": "TEMPERATURE {temp}."
@@ -4077,6 +4522,16 @@
         "dewpoint": {
           "usePlusPrefix": false,
           "speakLeadingZero": false,
+          "format": {
+            "text": {
+              "style": "Default",
+              "suffix": ""
+            },
+            "voice": {
+              "style": "Default",
+              "suffix": ""
+            }
+          },
           "template": {
             "text": "DP {dewpoint:#}",
             "voice": "DEW POINT {dewpoint}."
@@ -4084,6 +4539,58 @@
         },
         "altimeter": {
           "pronounceDecimal": false,
+          "variableFormats": {
+            "altimeter": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            },
+            "text": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            },
+            "inhg": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            },
+            "hpa": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            },
+            "qfe": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            }
+          },
           "template": {
             "text": "QNH {altimeter|hpa}",
             "voice": "QNH {altimeter|hpa}"
@@ -4105,6 +4612,103 @@
           "runwayVoice": "Wind Shear Runway {Runway}",
           "allRunwayText": "WS ALL RWY",
           "allRunwayVoice": "Wind Shear All Runways",
+          "template": {}
+        },
+        "runwayCondition": {
+          "textTemplate": "RWY {runway} {deposit} {depth} {friction}",
+          "voiceTemplate": "Runway {runway} {deposit} {depth} {friction}",
+          "terms": {
+            "ClearAndDry": {
+              "text": "CLEAR AND DRY",
+              "voice": "clear and dry"
+            },
+            "Damp": {
+              "text": "DAMP",
+              "voice": "damp"
+            },
+            "Wet": {
+              "text": "WET",
+              "voice": "wet"
+            },
+            "Rime": {
+              "text": "COVERED WITH RIME",
+              "voice": "covered with rime"
+            },
+            "DrySnow": {
+              "text": "COVERED WITH DRY SNOW",
+              "voice": "covered with dry snow"
+            },
+            "WetSnow": {
+              "text": "COVERED WITH WET SNOW",
+              "voice": "covered with wet snow"
+            },
+            "Slush": {
+              "text": "COVERED WITH SLUSH",
+              "voice": "covered with slush"
+            },
+            "Ice": {
+              "text": "COVERED WITH ICE",
+              "voice": "covered with ice"
+            },
+            "CompactedSnow": {
+              "text": "COVERED WITH COMPACTED SNOW",
+              "voice": "covered with compacted snow"
+            },
+            "FrozenRuts": {
+              "text": "FROZEN RUTS",
+              "voice": "frozen ruts"
+            },
+            "NotOperational": {
+              "text": "NOT OPERATIONAL DUE TO DEPOSITS",
+              "voice": "not operational due to deposits"
+            },
+            "DepthMillimeter": {
+              "text": "{value}MM",
+              "voice": "{value} millimeter"
+            },
+            "DepthMillimeters": {
+              "text": "{value}MM",
+              "voice": "{value} millimeters"
+            },
+            "DepthCentimeters": {
+              "text": "{value}CM",
+              "voice": "{value} centimeters"
+            },
+            "FrictionGood": {
+              "text": "FRICTION GOOD",
+              "voice": "estimated surface friction good"
+            },
+            "FrictionMediumToGood": {
+              "text": "FRICTION MEDIUM TO GOOD",
+              "voice": "estimated surface friction medium to good"
+            },
+            "FrictionMedium": {
+              "text": "FRICTION MEDIUM",
+              "voice": "estimated surface friction medium"
+            },
+            "FrictionMediumToPoor": {
+              "text": "FRICTION MEDIUM TO POOR",
+              "voice": "estimated surface friction medium to poor"
+            },
+            "FrictionPoor": {
+              "text": "FRICTION POOR",
+              "voice": "estimated surface friction poor"
+            },
+            "FrictionUnreliable": {
+              "text": "FRICTION UNRELIABLE",
+              "voice": "estimated surface friction unreliable"
+            }
+          },
+          "template": {}
+        },
+        "remarkWind": {
+          "textTemplate": "WIND {height}FT {dir}/{speed}KT",
+          "voiceTemplate": "Wind {height} feet {dir} degrees {speed} knots",
+          "template": {}
+        },
+        "autoObservation": {
+          "textTemplate": "AUTO",
+          "voiceTemplate": "Automatic Observation",
           "template": {}
         },
         "transitionLevel": {
@@ -4161,10 +4765,14 @@
       },
       "notamsBeforeFreeText": true,
       "airportConditionsBeforeFreeText": true,
+      "notamsSeparator": ". ",
+      "airportConditionsSeparator": ". ",
       "frequency": 127805000,
       "useDecimalTerminology": true,
+      "randomizeAtisLetterOnConnect": false,
       "atisVoice": {
         "useTextToSpeech": true,
+        "useWavPack": false,
         "voice": "US Female",
         "speechRate": 120
       },
@@ -4174,7 +4782,7 @@
           "name": "DEP:01 ARR:RNP01",
           "airportConditions": "",
           "notams": "",
-          "template": "",
+          "template": "@EYPA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV RNP @APPROACH ARR RWY01 DEP RWY01\r\n[TL]\r\nWIND RWY19 @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -4426,7 +5034,12 @@
           "weatherCondition": "rvr <= 350m",
           "enabled": true
         }
-      ]
+      ],
+      "datisTextReplacements": [],
+      "datisPrependAirportConditions": "",
+      "datisAppendAirportConditions": "",
+      "datisPrependNotams": "",
+      "datisAppendNotams": ""
     },
     {
       "id": "06d81bea-b1ea-4470-94c0-ef94f7f10086",
@@ -4447,6 +5060,7 @@
         },
         "surfaceWind": {
           "speakLeadingZero": false,
+          "speakWindSpeedGroupFormat": false,
           "magneticVariation": {
             "enabled": false,
             "magneticDegrees": 0
@@ -4487,6 +5101,58 @@
               "text": "{wind_dir} DEG {wind_spd} KT",
               "voice": "{wind_dir} DEGREES {wind_spd} {wind_unit}"
             }
+          },
+          "variableFormats": {
+            "wind_dir": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            },
+            "wind_spd": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            },
+            "wind_gust": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            },
+            "wind_vmin": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            },
+            "wind_vmax": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            }
           }
         },
         "visibility": {
@@ -4498,19 +5164,70 @@
           "southWest": "to the south-west",
           "west": "to the west",
           "northWest": "to the north-west",
+          "directionText": {
+            "N": "N",
+            "NE": "NE",
+            "E": "E",
+            "SE": "SE",
+            "S": "S",
+            "SW": "SW",
+            "W": "W",
+            "NW": "NW"
+          },
           "unlimitedVisibilityVoice": "visibility 10 kilometers or more.",
           "unlimitedVisibilityText": "VIS 10KM",
+          "cavokVoice": "CAVOK",
+          "cavokText": "CAVOK",
           "includeVisibilitySuffix": true,
           "metersCutoff": 5000,
+          "metersUnitVoice": "meters",
+          "kilometersUnitVoice": "kilometers",
+          "fractionVoice": {
+            "M1/4SM": "less than one quarter.",
+            "1 1/8SM": "one and one eighth.",
+            "1 1/4SM": "one and one quarter.",
+            "1 3/8SM": "one and three eighths.",
+            "1 1/2SM": "one and one half.",
+            "1 5/8SM": "one and five eighths.",
+            "1 3/4SM": "one and three quarters.",
+            "1 7/8SM": "one and seven eighths.",
+            "2 1/4SM": "two and one quarter.",
+            "2 1/2SM": "two and one half.",
+            "2 3/4SM": "two and three quarters.",
+            "1/16SM": "one sixteenth.",
+            "1/8SM": "one eighth.",
+            "3/16SM": "three sixteenths.",
+            "1/4SM": "one quarter.",
+            "5/16SM": "five sixteenths.",
+            "3/8SM": "three eighths.",
+            "1/2SM": "one half.",
+            "5/8SM": "five eighths.",
+            "3/4SM": "three quarters.",
+            "7/8SM": "seven eighths."
+          },
           "template": {
             "text": "VIS {visibility}M",
             "voice": "VISIBILITY {visibility}."
           }
         },
         "runwayVisualRange": {
+          "spokenText": "R-V-R",
           "neutralTendency": "Meters",
           "goingUpTendency": "Meters",
           "goingDownTendency": "Meters",
+          "tendencyText": {
+            "N": "N",
+            "U": "U",
+            "D": "D"
+          },
+          "voicePhrases": {
+            "Less than": "less than {value}",
+            "More than": "more than {value}",
+            "Variable": "variable between {min} and {max}",
+            "Variable, less than": "variable from less than {min} to {max}",
+            "Variable to greater than": "{min} variable to greater than {max}",
+            "Variable, less than to greater than": "variable from less than {min} to greater than {max}"
+          },
           "template": {}
         },
         "presentWeather": {
@@ -6225,6 +6942,10 @@
             "text": "undetermined",
             "voice": "undetermined"
           },
+          "undeterminedVerticalVisibility": {
+            "text": "undetermined",
+            "voice": "undetermined"
+          },
           "automaticCbDetection": {
             "text": "//////CB",
             "voice": "RADAR DETECTED C-B CLOUDS"
@@ -6265,11 +6986,29 @@
             "SKC": {
               "text": "SKC",
               "voice": "sky clear"
+            },
+            "UND": {
+              "text": "{amount}///{convective}",
+              "voice": "{amount} cloud height not available {convective}"
             }
           },
           "convectiveTypes": {
             "CB": "cumulonimbus",
             "TCU": "towering cumulus"
+          },
+          "convectiveTypesText": {
+            "CB": "CB",
+            "TCU": "TCU"
+          },
+          "altitudeFormat": {
+            "text": {
+              "style": "Default",
+              "suffix": ""
+            },
+            "voice": {
+              "style": "Default",
+              "suffix": ""
+            }
           },
           "template": {
             "text": "CLD {clouds}",
@@ -6279,6 +7018,16 @@
         "temperature": {
           "usePlusPrefix": false,
           "speakLeadingZero": false,
+          "format": {
+            "text": {
+              "style": "Default",
+              "suffix": ""
+            },
+            "voice": {
+              "style": "Default",
+              "suffix": ""
+            }
+          },
           "template": {
             "text": "T {temp:#}",
             "voice": "TEMPERATURE {temp}."
@@ -6287,6 +7036,16 @@
         "dewpoint": {
           "usePlusPrefix": false,
           "speakLeadingZero": false,
+          "format": {
+            "text": {
+              "style": "Default",
+              "suffix": ""
+            },
+            "voice": {
+              "style": "Default",
+              "suffix": ""
+            }
+          },
           "template": {
             "text": "DP {dewpoint:#}",
             "voice": "DEW POINT {dewpoint}."
@@ -6294,6 +7053,58 @@
         },
         "altimeter": {
           "pronounceDecimal": false,
+          "variableFormats": {
+            "altimeter": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            },
+            "text": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            },
+            "inhg": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            },
+            "hpa": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            },
+            "qfe": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            }
+          },
           "template": {
             "text": "QNH {altimeter|hpa}",
             "voice": "QNH {altimeter|hpa}"
@@ -6315,6 +7126,103 @@
           "runwayVoice": "Wind Shear Runway {Runway}",
           "allRunwayText": "WS ALL RWY",
           "allRunwayVoice": "Wind Shear All Runways",
+          "template": {}
+        },
+        "runwayCondition": {
+          "textTemplate": "RWY {runway} {deposit} {depth} {friction}",
+          "voiceTemplate": "Runway {runway} {deposit} {depth} {friction}",
+          "terms": {
+            "ClearAndDry": {
+              "text": "CLEAR AND DRY",
+              "voice": "clear and dry"
+            },
+            "Damp": {
+              "text": "DAMP",
+              "voice": "damp"
+            },
+            "Wet": {
+              "text": "WET",
+              "voice": "wet"
+            },
+            "Rime": {
+              "text": "COVERED WITH RIME",
+              "voice": "covered with rime"
+            },
+            "DrySnow": {
+              "text": "COVERED WITH DRY SNOW",
+              "voice": "covered with dry snow"
+            },
+            "WetSnow": {
+              "text": "COVERED WITH WET SNOW",
+              "voice": "covered with wet snow"
+            },
+            "Slush": {
+              "text": "COVERED WITH SLUSH",
+              "voice": "covered with slush"
+            },
+            "Ice": {
+              "text": "COVERED WITH ICE",
+              "voice": "covered with ice"
+            },
+            "CompactedSnow": {
+              "text": "COVERED WITH COMPACTED SNOW",
+              "voice": "covered with compacted snow"
+            },
+            "FrozenRuts": {
+              "text": "FROZEN RUTS",
+              "voice": "frozen ruts"
+            },
+            "NotOperational": {
+              "text": "NOT OPERATIONAL DUE TO DEPOSITS",
+              "voice": "not operational due to deposits"
+            },
+            "DepthMillimeter": {
+              "text": "{value}MM",
+              "voice": "{value} millimeter"
+            },
+            "DepthMillimeters": {
+              "text": "{value}MM",
+              "voice": "{value} millimeters"
+            },
+            "DepthCentimeters": {
+              "text": "{value}CM",
+              "voice": "{value} centimeters"
+            },
+            "FrictionGood": {
+              "text": "FRICTION GOOD",
+              "voice": "estimated surface friction good"
+            },
+            "FrictionMediumToGood": {
+              "text": "FRICTION MEDIUM TO GOOD",
+              "voice": "estimated surface friction medium to good"
+            },
+            "FrictionMedium": {
+              "text": "FRICTION MEDIUM",
+              "voice": "estimated surface friction medium"
+            },
+            "FrictionMediumToPoor": {
+              "text": "FRICTION MEDIUM TO POOR",
+              "voice": "estimated surface friction medium to poor"
+            },
+            "FrictionPoor": {
+              "text": "FRICTION POOR",
+              "voice": "estimated surface friction poor"
+            },
+            "FrictionUnreliable": {
+              "text": "FRICTION UNRELIABLE",
+              "voice": "estimated surface friction unreliable"
+            }
+          },
+          "template": {}
+        },
+        "remarkWind": {
+          "textTemplate": "WIND {height}FT {dir}/{speed}KT",
+          "voiceTemplate": "Wind {height} feet {dir} degrees {speed} knots",
+          "template": {}
+        },
+        "autoObservation": {
+          "textTemplate": "AUTO",
+          "voiceTemplate": "Automatic Observation",
           "template": {}
         },
         "transitionLevel": {
@@ -6371,10 +7279,14 @@
       },
       "notamsBeforeFreeText": true,
       "airportConditionsBeforeFreeText": true,
+      "notamsSeparator": ". ",
+      "airportConditionsSeparator": ". ",
       "frequency": 120755000,
       "useDecimalTerminology": true,
+      "randomizeAtisLetterOnConnect": false,
       "atisVoice": {
         "useTextToSpeech": true,
+        "useWavPack": false,
         "voice": "US Female",
         "speechRate": 120
       },
@@ -6397,8 +7309,25 @@
           }
         },
         {
+          "id": "e640ac5a-a00e-47bd-b751-4558d8e163bf",
+          "ordinal": 2,
+          "name": "DEP:14L ARR:ILS14R",
+          "airportConditions": "",
+          "notams": "",
+          "template": "@EYSA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV VOR @APPROACH ARR RWY14R DEP RWY14R\r\n[TL]\r\nWIND RWY14R @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
+          "externalGenerator": {
+            "enabled": false,
+            "textUrl": "",
+            "voiceUrl": "",
+            "arrival": "",
+            "departure": "",
+            "approaches": "",
+            "remarks": ""
+          }
+        },
+        {
           "id": "a0e0b46d-f7fe-40e0-b660-db81c14726c7",
-          "ordinal": 1,
+          "ordinal": 3,
           "name": "DEP:32R ARR:ILS32R",
           "airportConditions": "",
           "notams": "",
@@ -6414,8 +7343,25 @@
           }
         },
         {
+          "id": "cd31d49b-c339-4a54-8cbd-590c8d2153ad",
+          "ordinal": 4,
+          "name": "DEP:32L ARR:VOR32L",
+          "airportConditions": "",
+          "notams": "",
+          "template": "@EYSA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV VOR @APPROACH ARR RWY32L DEP RWY32L\r\n[TL]\r\nWIND RWY32L @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
+          "externalGenerator": {
+            "enabled": false,
+            "textUrl": "",
+            "voiceUrl": "",
+            "arrival": "",
+            "departure": "",
+            "approaches": "",
+            "remarks": ""
+          }
+        },
+        {
           "id": "5ea3e196-d4ca-4280-8838-96924a92a783",
-          "ordinal": 3,
+          "ordinal": 5,
           "name": "DEP:14L ARR:SpecialAPP14L",
           "airportConditions": "",
           "notams": "",
@@ -6431,12 +7377,46 @@
           }
         },
         {
+          "id": "5844989b-a338-4fd3-ac41-0655e9ff462c",
+          "ordinal": 6,
+          "name": "DEP:14R ARR:SpecialAPP14R",
+          "airportConditions": "",
+          "notams": "",
+          "template": "@EYSA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV [ARPT_COND] @APPROACH ARR RWY14R DEP RWY14R\r\n[TL]\r\nWIND RWY14R @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
+          "externalGenerator": {
+            "enabled": false,
+            "textUrl": "",
+            "voiceUrl": "",
+            "arrival": "",
+            "departure": "",
+            "approaches": "",
+            "remarks": ""
+          }
+        },
+        {
           "id": "3479b0b4-4de9-4e29-873e-bc866f653904",
-          "ordinal": 4,
+          "ordinal": 7,
           "name": "DEP:32R ARR:SpecialAPP32R",
           "airportConditions": "",
           "notams": "",
           "template": "@EYSA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV [ARPT_COND] @APPROACH ARR RWY32R DEP RWY32R\r\n[TL]\r\nWIND RWY32R @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
+          "externalGenerator": {
+            "enabled": false,
+            "textUrl": "",
+            "voiceUrl": "",
+            "arrival": "",
+            "departure": "",
+            "approaches": "",
+            "remarks": ""
+          }
+        },
+        {
+          "id": "48f60315-c375-4d31-8108-0721b1a60902",
+          "ordinal": 7,
+          "name": "DEP:32L ARR:SpecialAPP32L",
+          "airportConditions": "",
+          "notams": "",
+          "template": "@EYSA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV [ARPT_COND] @APPROACH ARR RWY32L DEP RWY32L\r\n[TL]\r\nWIND RWY32L @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -6590,7 +7570,7 @@
           "voice": "ZULU"
         },
         {
-          "variableName": "LVP",
+          "variableName": "LVP_AUTO",
           "text": "LVP IN FORCE",
           "voice": "Low Visibility Procedures are in force."
         },
@@ -6635,7 +7615,12 @@
           "weatherCondition": "rvr < 550m",
           "enabled": true
         }
-      ]
+      ],
+      "datisTextReplacements": [],
+      "datisPrependAirportConditions": "",
+      "datisAppendAirportConditions": "",
+      "datisPrependNotams": "",
+      "datisAppendNotams": ""
     },
     {
       "id": "adc174b9-b1e7-4fdf-a4af-ffb84fd5f345",
@@ -6656,6 +7641,7 @@
         },
         "surfaceWind": {
           "speakLeadingZero": false,
+          "speakWindSpeedGroupFormat": false,
           "magneticVariation": {
             "enabled": false,
             "magneticDegrees": 0
@@ -6696,6 +7682,58 @@
               "text": "{wind_dir} DEG {wind_spd} KT",
               "voice": "{wind_dir} DEGREES {wind_spd} {wind_unit}"
             }
+          },
+          "variableFormats": {
+            "wind_dir": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            },
+            "wind_spd": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            },
+            "wind_gust": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            },
+            "wind_vmin": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            },
+            "wind_vmax": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            }
           }
         },
         "visibility": {
@@ -6707,19 +7745,70 @@
           "southWest": "to the south-west",
           "west": "to the west",
           "northWest": "to the north-west",
+          "directionText": {
+            "N": "N",
+            "NE": "NE",
+            "E": "E",
+            "SE": "SE",
+            "S": "S",
+            "SW": "SW",
+            "W": "W",
+            "NW": "NW"
+          },
           "unlimitedVisibilityVoice": "visibility 10 kilometers or more.",
           "unlimitedVisibilityText": "VIS 10KM",
+          "cavokVoice": "CAVOK",
+          "cavokText": "CAVOK",
           "includeVisibilitySuffix": true,
           "metersCutoff": 5000,
+          "metersUnitVoice": "meters",
+          "kilometersUnitVoice": "kilometers",
+          "fractionVoice": {
+            "M1/4SM": "less than one quarter.",
+            "1 1/8SM": "one and one eighth.",
+            "1 1/4SM": "one and one quarter.",
+            "1 3/8SM": "one and three eighths.",
+            "1 1/2SM": "one and one half.",
+            "1 5/8SM": "one and five eighths.",
+            "1 3/4SM": "one and three quarters.",
+            "1 7/8SM": "one and seven eighths.",
+            "2 1/4SM": "two and one quarter.",
+            "2 1/2SM": "two and one half.",
+            "2 3/4SM": "two and three quarters.",
+            "1/16SM": "one sixteenth.",
+            "1/8SM": "one eighth.",
+            "3/16SM": "three sixteenths.",
+            "1/4SM": "one quarter.",
+            "5/16SM": "five sixteenths.",
+            "3/8SM": "three eighths.",
+            "1/2SM": "one half.",
+            "5/8SM": "five eighths.",
+            "3/4SM": "three quarters.",
+            "7/8SM": "seven eighths."
+          },
           "template": {
             "text": "VIS {visibility}M",
             "voice": "VISIBILITY {visibility}."
           }
         },
         "runwayVisualRange": {
+          "spokenText": "R-V-R",
           "neutralTendency": "Meters",
           "goingUpTendency": "Meters",
           "goingDownTendency": "Meters",
+          "tendencyText": {
+            "N": "N",
+            "U": "U",
+            "D": "D"
+          },
+          "voicePhrases": {
+            "Less than": "less than {value}",
+            "More than": "more than {value}",
+            "Variable": "variable between {min} and {max}",
+            "Variable, less than": "variable from less than {min} to {max}",
+            "Variable to greater than": "{min} variable to greater than {max}",
+            "Variable, less than to greater than": "variable from less than {min} to greater than {max}"
+          },
           "template": {}
         },
         "presentWeather": {
@@ -8434,6 +9523,10 @@
             "text": "undetermined",
             "voice": "undetermined"
           },
+          "undeterminedVerticalVisibility": {
+            "text": "undetermined",
+            "voice": "undetermined"
+          },
           "automaticCbDetection": {
             "text": "//////CB",
             "voice": "RADAR DETECTED C-B CLOUDS"
@@ -8474,11 +9567,29 @@
             "SKC": {
               "text": "SKC",
               "voice": "sky clear"
+            },
+            "UND": {
+              "text": "{amount}///{convective}",
+              "voice": "{amount} cloud height not available {convective}"
             }
           },
           "convectiveTypes": {
             "CB": "cumulonimbus",
             "TCU": "towering cumulus"
+          },
+          "convectiveTypesText": {
+            "CB": "CB",
+            "TCU": "TCU"
+          },
+          "altitudeFormat": {
+            "text": {
+              "style": "Default",
+              "suffix": ""
+            },
+            "voice": {
+              "style": "Default",
+              "suffix": ""
+            }
           },
           "template": {
             "text": "CLD {clouds}",
@@ -8488,6 +9599,16 @@
         "temperature": {
           "usePlusPrefix": false,
           "speakLeadingZero": false,
+          "format": {
+            "text": {
+              "style": "Default",
+              "suffix": ""
+            },
+            "voice": {
+              "style": "Default",
+              "suffix": ""
+            }
+          },
           "template": {
             "text": "T{temp:#}",
             "voice": "TEMPERATURE {temp}."
@@ -8496,6 +9617,16 @@
         "dewpoint": {
           "usePlusPrefix": false,
           "speakLeadingZero": false,
+          "format": {
+            "text": {
+              "style": "Default",
+              "suffix": ""
+            },
+            "voice": {
+              "style": "Default",
+              "suffix": ""
+            }
+          },
           "template": {
             "text": "DP{dewpoint:#}",
             "voice": "DEW POINT {dewpoint}."
@@ -8503,6 +9634,58 @@
         },
         "altimeter": {
           "pronounceDecimal": false,
+          "variableFormats": {
+            "altimeter": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            },
+            "text": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            },
+            "inhg": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            },
+            "hpa": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            },
+            "qfe": {
+              "text": {
+                "style": "Default",
+                "suffix": ""
+              },
+              "voice": {
+                "style": "Default",
+                "suffix": ""
+              }
+            }
+          },
           "template": {
             "text": "QNH {altimeter|hpa}HPA",
             "voice": "QNH {altimeter|hpa}"
@@ -8524,6 +9707,103 @@
           "runwayVoice": "Wind Shear Runway {Runway}",
           "allRunwayText": "WS ALL RWY",
           "allRunwayVoice": "Wind Shear All Runways",
+          "template": {}
+        },
+        "runwayCondition": {
+          "textTemplate": "RWY {runway} {deposit} {depth} {friction}",
+          "voiceTemplate": "Runway {runway} {deposit} {depth} {friction}",
+          "terms": {
+            "ClearAndDry": {
+              "text": "CLEAR AND DRY",
+              "voice": "clear and dry"
+            },
+            "Damp": {
+              "text": "DAMP",
+              "voice": "damp"
+            },
+            "Wet": {
+              "text": "WET",
+              "voice": "wet"
+            },
+            "Rime": {
+              "text": "COVERED WITH RIME",
+              "voice": "covered with rime"
+            },
+            "DrySnow": {
+              "text": "COVERED WITH DRY SNOW",
+              "voice": "covered with dry snow"
+            },
+            "WetSnow": {
+              "text": "COVERED WITH WET SNOW",
+              "voice": "covered with wet snow"
+            },
+            "Slush": {
+              "text": "COVERED WITH SLUSH",
+              "voice": "covered with slush"
+            },
+            "Ice": {
+              "text": "COVERED WITH ICE",
+              "voice": "covered with ice"
+            },
+            "CompactedSnow": {
+              "text": "COVERED WITH COMPACTED SNOW",
+              "voice": "covered with compacted snow"
+            },
+            "FrozenRuts": {
+              "text": "FROZEN RUTS",
+              "voice": "frozen ruts"
+            },
+            "NotOperational": {
+              "text": "NOT OPERATIONAL DUE TO DEPOSITS",
+              "voice": "not operational due to deposits"
+            },
+            "DepthMillimeter": {
+              "text": "{value}MM",
+              "voice": "{value} millimeter"
+            },
+            "DepthMillimeters": {
+              "text": "{value}MM",
+              "voice": "{value} millimeters"
+            },
+            "DepthCentimeters": {
+              "text": "{value}CM",
+              "voice": "{value} centimeters"
+            },
+            "FrictionGood": {
+              "text": "FRICTION GOOD",
+              "voice": "estimated surface friction good"
+            },
+            "FrictionMediumToGood": {
+              "text": "FRICTION MEDIUM TO GOOD",
+              "voice": "estimated surface friction medium to good"
+            },
+            "FrictionMedium": {
+              "text": "FRICTION MEDIUM",
+              "voice": "estimated surface friction medium"
+            },
+            "FrictionMediumToPoor": {
+              "text": "FRICTION MEDIUM TO POOR",
+              "voice": "estimated surface friction medium to poor"
+            },
+            "FrictionPoor": {
+              "text": "FRICTION POOR",
+              "voice": "estimated surface friction poor"
+            },
+            "FrictionUnreliable": {
+              "text": "FRICTION UNRELIABLE",
+              "voice": "estimated surface friction unreliable"
+            }
+          },
+          "template": {}
+        },
+        "remarkWind": {
+          "textTemplate": "WIND {height}FT {dir}/{speed}KT",
+          "voiceTemplate": "Wind {height} feet {dir} degrees {speed} knots",
+          "template": {}
+        },
+        "autoObservation": {
+          "textTemplate": "AUTO",
+          "voiceTemplate": "Automatic Observation",
           "template": {}
         },
         "transitionLevel": {
@@ -8580,10 +9860,14 @@
       },
       "notamsBeforeFreeText": true,
       "airportConditionsBeforeFreeText": true,
+      "notamsSeparator": ". ",
+      "airportConditionsSeparator": ". ",
       "frequency": 125805000,
       "useDecimalTerminology": true,
+      "randomizeAtisLetterOnConnect": false,
       "atisVoice": {
         "useTextToSpeech": true,
+        "useWavPack": false,
         "voice": "US Female",
         "speechRate": 120
       },
@@ -8594,7 +9878,7 @@
           "name": "DEP:01 ARR:ILSZ01",
           "airportConditions": "",
           "notams": "",
-          "template": "@EYVI_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV ILS @Z @APPROACH ARR RWY01 DEP RWY01\r\n[TL]\r\nWIND RWY01 @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@SCENERY\r\n@CDM\r\n@END_OF_DATA",
+          "template": "",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -8849,7 +10133,12 @@
           "weatherCondition": "ceiling < 200ft OR rvr <= 600m",
           "enabled": true
         }
-      ]
+      ],
+      "datisTextReplacements": [],
+      "datisPrependAirportConditions": "",
+      "datisAppendAirportConditions": "",
+      "datisPrependNotams": "",
+      "datisAppendNotams": ""
     }
   ],
   "version": 4
