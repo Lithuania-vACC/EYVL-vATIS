@@ -137,14 +137,25 @@
             "W": "W",
             "NW": "NW"
           },
-          "unlimitedVisibilityVoice": "visibility 10 kilometers or more.",
-          "unlimitedVisibilityText": "VIS 10KM",
+          "formatRules": [
+            {
+              "fromMeters": 0,
+              "text": "{raw}",
+              "voice": "{m} meters"
+            },
+            {
+              "fromMeters": 5001,
+              "text": "{raw}",
+              "voice": "{km} kilometers"
+            },
+            {
+              "fromMeters": 9999,
+              "text": "10K",
+              "voice": "10 kilometers or more"
+            }
+          ],
           "cavokVoice": "CAVOK",
           "cavokText": "CAVOK",
-          "includeVisibilitySuffix": true,
-          "metersCutoff": 5000,
-          "metersUnitVoice": "meters",
-          "kilometersUnitVoice": "kilometers",
           "fractionVoice": {
             "M1/4SM": "less than one quarter.",
             "1 1/8SM": "one and one eighth.",
@@ -2082,6 +2093,8 @@
           "temporaryVoice": "Tempo",
           "notAvailableText": "UNAVBL",
           "notAvailableVoice": "Trend Unavailable",
+          "templateText": "{Trend}",
+          "templateVoice": "TREND, {Trend}",
           "template": {}
         },
         "windShear": {
@@ -2257,42 +2270,8 @@
         {
           "id": "889ecce8-dcb1-4b65-bddd-9847f07ee6ce",
           "ordinal": 0,
-          "name": "DEP:08 ARR:ILSZ08",
-          "airportConditions": "",
-          "notams": "",
-          "template": "@EYKA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV ILS @Z @APPROACH RWY08 FOR ARR AND DEP\r\n[TL]\r\nWIND RWY08 [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
-          "externalGenerator": {
-            "enabled": false,
-            "textUrl": "",
-            "voiceUrl": "",
-            "arrival": "",
-            "departure": "",
-            "approaches": "",
-            "remarks": ""
-          }
-        },
-        {
-          "id": "cba400de-ecf8-4cb7-8f00-7fc4e94624a7",
-          "ordinal": 2,
-          "name": "DEP:26 ARR:ILSZ26",
-          "airportConditions": "",
-          "notams": "",
-          "template": "@EYKA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV ILS @Z OR ILS @Y @APPROACH RWY26 FOR ARR AND DEP\r\n[TL]\r\nWIND RWY26 [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
-          "externalGenerator": {
-            "enabled": false,
-            "textUrl": "",
-            "voiceUrl": "",
-            "arrival": "",
-            "departure": "",
-            "approaches": "",
-            "remarks": ""
-          }
-        },
-        {
-          "id": "5195b762-055d-4c5f-a7d4-0530fdfdef0f",
-          "ordinal": 3,
-          "name": "DEP:08 ARR:SpecialAPP08",
-          "airportConditions": "",
+          "name": "DEP:08 ARR:08",
+          "airportConditions": "ILS Z",
           "notams": "",
           "template": "@EYKA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV [ARPT_COND] @APPROACH RWY08 FOR ARR AND DEP\r\n[TL]\r\nWIND RWY08 [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
           "externalGenerator": {
@@ -2306,12 +2285,46 @@
           }
         },
         {
-          "id": "9bf5a433-297a-4107-ad35-7b9c2022c66a",
-          "ordinal": 4,
-          "name": "DEP:26 ARR:SpecialAPP26",
-          "airportConditions": "",
+          "id": "cba400de-ecf8-4cb7-8f00-7fc4e94624a7",
+          "ordinal": 2,
+          "name": "DEP:26 ARR:26",
+          "airportConditions": "ILS Z OR ILS Y",
           "notams": "",
           "template": "@EYKA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV [ARPT_COND] @APPROACH RWY26 FOR ARR AND DEP\r\n[TL]\r\nWIND RWY26 [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
+          "externalGenerator": {
+            "enabled": false,
+            "textUrl": "",
+            "voiceUrl": "",
+            "arrival": "",
+            "departure": "",
+            "approaches": "",
+            "remarks": ""
+          }
+        },
+        {
+          "id": "e05ce5ce-4660-4158-aaec-c98ddf875189",
+          "ordinal": 3,
+          "name": "DEP:08 ARR:26",
+          "airportConditions": "ILS Z",
+          "notams": "",
+          "template": "@EYKA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV [ARPT_COND] @APPROACH RWY26 FOR ARR AND RWY08 FOR DEP\r\n[TL]\r\nWIND RWY26 [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
+          "externalGenerator": {
+            "enabled": false,
+            "textUrl": "",
+            "voiceUrl": "",
+            "arrival": "",
+            "departure": "",
+            "approaches": "",
+            "remarks": ""
+          }
+        },
+        {
+          "id": "2741c270-0d60-46f9-87d0-1e55d4fb5562",
+          "ordinal": 4,
+          "name": "DEP:26 ARR:08",
+          "airportConditions": "ILS Z OR ILS Y",
+          "notams": "",
+          "template": "@EYKA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV [ARPT_COND] @APPROACH RWY08 FOR ARR AND RWY26 FOR DEP\r\n[TL]\r\nWIND RWY08 [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -2485,34 +2498,24 @@
           "voice": "APPROACH."
         }
       ],
-      "patterns": [],
-      "airportConditionDefinitions": [
+      "patterns": [
         {
-          "text": "ILS @Z",
-          "ordinal": 1,
-          "enabled": false
+          "pattern": "RWY",
+          "text": "RWY",
+          "voice": "RUNWAY"
         },
         {
-          "text": "ILS @Y",
-          "ordinal": 2,
-          "enabled": false
+          "pattern": "ARR",
+          "text": "ARR",
+          "voice": "ARRIVAL"
         },
         {
-          "text": "RNP",
-          "ordinal": 3,
-          "enabled": true
-        },
-        {
-          "text": "VOR @Y",
-          "ordinal": 4,
-          "enabled": false
-        },
-        {
-          "text": "VOR @Z",
-          "ordinal": 5,
-          "enabled": false
+          "pattern": "DEP",
+          "text": "DEP",
+          "voice": "DEPARTURE"
         }
       ],
+      "airportConditionDefinitions": [],
       "notamDefinitions": [
         {
           "text": "@LVP_AUTO",
@@ -2660,14 +2663,25 @@
             "W": "W",
             "NW": "NW"
           },
-          "unlimitedVisibilityVoice": "visibility 10 kilometers or more.",
-          "unlimitedVisibilityText": "VIS 10KM",
+          "formatRules": [
+            {
+              "fromMeters": 0,
+              "text": "{raw}",
+              "voice": "{m} meters"
+            },
+            {
+              "fromMeters": 5001,
+              "text": "{raw}",
+              "voice": "{km} kilometers"
+            },
+            {
+              "fromMeters": 9999,
+              "text": "10K",
+              "voice": "10 kilometers or more"
+            }
+          ],
           "cavokVoice": "CAVOK",
           "cavokText": "CAVOK",
-          "includeVisibilitySuffix": true,
-          "metersCutoff": 5000,
-          "metersUnitVoice": "meters",
-          "kilometersUnitVoice": "kilometers",
           "fractionVoice": {
             "M1/4SM": "less than one quarter.",
             "1 1/8SM": "one and one eighth.",
@@ -4605,6 +4619,8 @@
           "temporaryVoice": "Tempo",
           "notAvailableText": "UNAVBL",
           "notAvailableVoice": "Trend Unavailable",
+          "templateText": "{Trend}",
+          "templateVoice": "TREND, {Trend}",
           "template": {}
         },
         "windShear": {
@@ -4779,40 +4795,9 @@
       "presets": [
         {
           "id": "0d2946fd-af3c-435c-83c0-19b7bdc3b332",
-          "name": "DEP:01 ARR:RNP01",
-          "airportConditions": "",
-          "notams": "",
-          "template": "@EYPA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV RNP @APPROACH ARR RWY01 DEP RWY01\r\n[TL]\r\nWIND RWY19 @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
-          "externalGenerator": {
-            "enabled": false,
-            "textUrl": "",
-            "voiceUrl": "",
-            "arrival": "",
-            "departure": "",
-            "approaches": "",
-            "remarks": ""
-          }
-        },
-        {
-          "id": "9682df93-8d23-4769-9852-0dcf09a9fab3",
-          "name": "DEP:19 ARR:ILS19",
-          "airportConditions": "",
-          "notams": "",
-          "template": "@EYPA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV ILS @APPROACH ARR RWY19 DEP RWY19\r\n[TL]\r\nWIND RWY19 @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
-          "externalGenerator": {
-            "enabled": false,
-            "textUrl": "",
-            "voiceUrl": "",
-            "arrival": "",
-            "departure": "",
-            "approaches": "",
-            "remarks": ""
-          }
-        },
-        {
-          "id": "a061bd75-8ee2-45ed-ac9e-5b7fdff77b10",
-          "name": "DEP:01 ARR:SpecialAPP01",
-          "airportConditions": "",
+          "ordinal": 1,
+          "name": "DEP:01 ARR:01",
+          "airportConditions": "RNP",
           "notams": "",
           "template": "@EYPA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV [ARPT_COND] @APPROACH ARR RWY01 DEP RWY01\r\n[TL]\r\nWIND RWY01 @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
           "externalGenerator": {
@@ -4826,11 +4811,46 @@
           }
         },
         {
-          "id": "a4ff0dc2-b934-4855-accd-d61eb944b5c6",
-          "name": "DEP:19 ARR:SpecialAPP19",
-          "airportConditions": "",
+          "id": "bcdcf747-5f7b-4a70-b6a0-38da64775980",
+          "ordinal": 2,
+          "name": "DEP:01 ARR:19",
+          "airportConditions": "ILS",
+          "notams": "",
+          "template": "@EYPA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV [ARPT_COND] @APPROACH ARR RWY19 DEP RWY01\r\n[TL]\r\nWIND RWY19 @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
+          "externalGenerator": {
+            "enabled": false,
+            "textUrl": "",
+            "voiceUrl": "",
+            "arrival": "",
+            "departure": "",
+            "approaches": "",
+            "remarks": ""
+          }
+        },
+        {
+          "id": "9682df93-8d23-4769-9852-0dcf09a9fab3",
+          "ordinal": 3,
+          "name": "DEP:19 ARR:19",
+          "airportConditions": "ILS",
           "notams": "",
           "template": "@EYPA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV [ARPT_COND] @APPROACH ARR RWY19 DEP RWY19\r\n[TL]\r\nWIND RWY19 @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
+          "externalGenerator": {
+            "enabled": false,
+            "textUrl": "",
+            "voiceUrl": "",
+            "arrival": "",
+            "departure": "",
+            "approaches": "",
+            "remarks": ""
+          }
+        },
+        {
+          "id": "55b047ea-84dc-48d3-bc56-54c2a759bcde",
+          "ordinal": 3,
+          "name": "DEP:19 ARR:01",
+          "airportConditions": "RNP",
+          "notams": "",
+          "template": "@EYPA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV [ARPT_COND] @APPROACH ARR RWY01 DEP RWY19\r\n[TL]\r\nWIND RWY01 @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -5004,29 +5024,24 @@
           "voice": "APPROACH."
         }
       ],
-      "patterns": [],
-      "airportConditionDefinitions": [
+      "patterns": [
         {
-          "text": "ILS",
-          "ordinal": 1,
-          "enabled": false
+          "pattern": "RWY",
+          "text": "RWY",
+          "voice": "RUNWAY"
         },
         {
-          "text": "RNP",
-          "ordinal": 2,
-          "enabled": false
+          "pattern": "ARR",
+          "text": "ARR",
+          "voice": "ARRIVAL"
         },
         {
-          "text": "NDB @Y",
-          "ordinal": 3,
-          "enabled": false
-        },
-        {
-          "text": "NDB @Z",
-          "ordinal": 3,
-          "enabled": false
+          "pattern": "DEP",
+          "text": "DEP",
+          "voice": "DEPARTURE"
         }
       ],
+      "airportConditionDefinitions": [],
       "notamDefinitions": [
         {
           "text": "@LVP_AUTO",
@@ -5174,14 +5189,25 @@
             "W": "W",
             "NW": "NW"
           },
-          "unlimitedVisibilityVoice": "visibility 10 kilometers or more.",
-          "unlimitedVisibilityText": "VIS 10KM",
+          "formatRules": [
+            {
+              "fromMeters": 0,
+              "text": "{raw}",
+              "voice": "{m} meters"
+            },
+            {
+              "fromMeters": 5001,
+              "text": "{raw}",
+              "voice": "{km} kilometers"
+            },
+            {
+              "fromMeters": 9999,
+              "text": "10K",
+              "voice": "10 kilometers or more"
+            }
+          ],
           "cavokVoice": "CAVOK",
           "cavokText": "CAVOK",
-          "includeVisibilitySuffix": true,
-          "metersCutoff": 5000,
-          "metersUnitVoice": "meters",
-          "kilometersUnitVoice": "kilometers",
           "fractionVoice": {
             "M1/4SM": "less than one quarter.",
             "1 1/8SM": "one and one eighth.",
@@ -7119,6 +7145,8 @@
           "temporaryVoice": "Tempo",
           "notAvailableText": "UNAVBL",
           "notAvailableVoice": "Trend Unavailable",
+          "templateText": "{Trend}",
+          "templateVoice": "TREND, {Trend}",
           "template": {}
         },
         "windShear": {
@@ -7294,10 +7322,10 @@
         {
           "id": "772e49cb-c97e-49b3-afa9-ca3aa9e1de1d",
           "ordinal": 1,
-          "name": "DEP:14L ARR:ILS14L",
-          "airportConditions": "",
+          "name": "DEP:14L ARR:14L",
+          "airportConditions": "ILS Z",
           "notams": "",
-          "template": "@EYSA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV ILS @APPROACH ARR RWY14L DEP RWY14L\r\n[TL]\r\nWIND RWY14L @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
+          "template": "",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -7311,76 +7339,8 @@
         {
           "id": "e640ac5a-a00e-47bd-b751-4558d8e163bf",
           "ordinal": 2,
-          "name": "DEP:14L ARR:ILS14R",
-          "airportConditions": "",
-          "notams": "",
-          "template": "@EYSA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV VOR @APPROACH ARR RWY14R DEP RWY14R\r\n[TL]\r\nWIND RWY14R @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
-          "externalGenerator": {
-            "enabled": false,
-            "textUrl": "",
-            "voiceUrl": "",
-            "arrival": "",
-            "departure": "",
-            "approaches": "",
-            "remarks": ""
-          }
-        },
-        {
-          "id": "a0e0b46d-f7fe-40e0-b660-db81c14726c7",
-          "ordinal": 3,
-          "name": "DEP:32R ARR:ILS32R",
-          "airportConditions": "",
-          "notams": "",
-          "template": "@EYSA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV ILS @APPROACH ARR RWY32R DEP RWY32R\r\n[TL]\r\nWIND RWY32R @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
-          "externalGenerator": {
-            "enabled": false,
-            "textUrl": "",
-            "voiceUrl": "",
-            "arrival": "",
-            "departure": "",
-            "approaches": "",
-            "remarks": ""
-          }
-        },
-        {
-          "id": "cd31d49b-c339-4a54-8cbd-590c8d2153ad",
-          "ordinal": 4,
-          "name": "DEP:32L ARR:VOR32L",
-          "airportConditions": "",
-          "notams": "",
-          "template": "@EYSA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV VOR @APPROACH ARR RWY32L DEP RWY32L\r\n[TL]\r\nWIND RWY32L @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
-          "externalGenerator": {
-            "enabled": false,
-            "textUrl": "",
-            "voiceUrl": "",
-            "arrival": "",
-            "departure": "",
-            "approaches": "",
-            "remarks": ""
-          }
-        },
-        {
-          "id": "5ea3e196-d4ca-4280-8838-96924a92a783",
-          "ordinal": 5,
-          "name": "DEP:14L ARR:SpecialAPP14L",
-          "airportConditions": "",
-          "notams": "",
-          "template": "@EYSA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV [ARPT_COND] @APPROACH ARR RWY14L DEP RWY14L\r\n[TL]\r\nWIND RWY14L @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
-          "externalGenerator": {
-            "enabled": false,
-            "textUrl": "",
-            "voiceUrl": "",
-            "arrival": "",
-            "departure": "",
-            "approaches": "",
-            "remarks": ""
-          }
-        },
-        {
-          "id": "5844989b-a338-4fd3-ac41-0655e9ff462c",
-          "ordinal": 6,
-          "name": "DEP:14R ARR:SpecialAPP14R",
-          "airportConditions": "",
+          "name": "DEP:14R ARR:14R",
+          "airportConditions": "VOR",
           "notams": "",
           "template": "@EYSA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV [ARPT_COND] @APPROACH ARR RWY14R DEP RWY14R\r\n[TL]\r\nWIND RWY14R @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
           "externalGenerator": {
@@ -7394,10 +7354,10 @@
           }
         },
         {
-          "id": "3479b0b4-4de9-4e29-873e-bc866f653904",
-          "ordinal": 7,
-          "name": "DEP:32R ARR:SpecialAPP32R",
-          "airportConditions": "",
+          "id": "a0e0b46d-f7fe-40e0-b660-db81c14726c7",
+          "ordinal": 3,
+          "name": "DEP:32R ARR:32R",
+          "airportConditions": "ILS Z",
           "notams": "",
           "template": "@EYSA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV [ARPT_COND] @APPROACH ARR RWY32R DEP RWY32R\r\n[TL]\r\nWIND RWY32R @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
           "externalGenerator": {
@@ -7411,10 +7371,10 @@
           }
         },
         {
-          "id": "48f60315-c375-4d31-8108-0721b1a60902",
-          "ordinal": 7,
-          "name": "DEP:32L ARR:SpecialAPP32L",
-          "airportConditions": "",
+          "id": "cd31d49b-c339-4a54-8cbd-590c8d2153ad",
+          "ordinal": 4,
+          "name": "DEP:32L ARR:32L",
+          "airportConditions": "VOR",
           "notams": "",
           "template": "@EYSA_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV [ARPT_COND] @APPROACH ARR RWY32L DEP RWY32L\r\n[TL]\r\nWIND RWY32L @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@CDM\r\n@END_OF_DATA",
           "externalGenerator": {
@@ -7590,7 +7550,23 @@
           "voice": "APPROACH."
         }
       ],
-      "patterns": [],
+      "patterns": [
+        {
+          "pattern": "RWY",
+          "text": "RWY",
+          "voice": "RUNWAY"
+        },
+        {
+          "pattern": "ARR",
+          "text": "ARR",
+          "voice": "ARRIVAL"
+        },
+        {
+          "pattern": "DEP",
+          "text": "DEP",
+          "voice": "DEPARTURE"
+        }
+      ],
       "airportConditionDefinitions": [
         {
           "text": "ILS",
@@ -7755,14 +7731,25 @@
             "W": "W",
             "NW": "NW"
           },
-          "unlimitedVisibilityVoice": "visibility 10 kilometers or more.",
-          "unlimitedVisibilityText": "VIS 10KM",
+          "formatRules": [
+            {
+              "fromMeters": 0,
+              "text": "{raw}",
+              "voice": "{m} meters"
+            },
+            {
+              "fromMeters": 5001,
+              "text": "{raw}",
+              "voice": "{km} kilometers"
+            },
+            {
+              "fromMeters": 9999,
+              "text": "10K",
+              "voice": "10 kilometers or more"
+            }
+          ],
           "cavokVoice": "CAVOK",
           "cavokText": "CAVOK",
-          "includeVisibilitySuffix": true,
-          "metersCutoff": 5000,
-          "metersUnitVoice": "meters",
-          "kilometersUnitVoice": "kilometers",
           "fractionVoice": {
             "M1/4SM": "less than one quarter.",
             "1 1/8SM": "one and one eighth.",
@@ -9700,6 +9687,8 @@
           "temporaryVoice": "Tempo",
           "notAvailableText": "UNAVBL",
           "notAvailableVoice": "Trend Unavailable",
+          "templateText": "{Trend}",
+          "templateVoice": "TREND, {Trend}",
           "template": {}
         },
         "windShear": {
@@ -9875,42 +9864,8 @@
         {
           "id": "b478ec65-b203-4914-b94a-89484d3d4943",
           "ordinal": 1,
-          "name": "DEP:01 ARR:ILSZ01",
-          "airportConditions": "",
-          "notams": "",
-          "template": "@EYVI_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV ILS @Z @APPROACH ARR RWY01 DEP RWY01\r\n[TL]\r\nWIND RWY01 @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@SCENERY\r\n@CDM\r\n@END_OF_DATA",
-          "externalGenerator": {
-            "enabled": false,
-            "textUrl": "",
-            "voiceUrl": "",
-            "arrival": "",
-            "departure": "",
-            "approaches": "",
-            "remarks": ""
-          }
-        },
-        {
-          "id": "9ad929bb-47b0-474d-ae81-2ff890f96edd",
-          "ordinal": 1,
-          "name": "DEP:19 ARR:ILSZ19",
-          "airportConditions": "",
-          "notams": "",
-          "template": "@EYVI_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV ILS @Z @APPROACH ARR RWY19 DEP RWY19\r\n[TL]\r\nWIND RWY19 @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@SCENERY\r\n@CDM\r\n@END_OF_DATA",
-          "externalGenerator": {
-            "enabled": false,
-            "textUrl": "",
-            "voiceUrl": "",
-            "arrival": "",
-            "departure": "",
-            "approaches": "",
-            "remarks": ""
-          }
-        },
-        {
-          "id": "a3cc5499-d5af-4efd-8f3e-2105607e20eb",
-          "ordinal": 3,
-          "name": "DEP:01 ARR:SpecialAPP01",
-          "airportConditions": "",
+          "name": "DEP:01 ARR:01",
+          "airportConditions": "ILS Z",
           "notams": "",
           "template": "@EYVI_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV [ARPT_COND] @APPROACH ARR RWY01 DEP RWY01\r\n[TL]\r\nWIND RWY01 @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@SCENERY\r\n@CDM\r\n@END_OF_DATA",
           "externalGenerator": {
@@ -9924,12 +9879,46 @@
           }
         },
         {
-          "id": "02ededb9-eb4b-477f-89b7-5f28c00086df",
-          "ordinal": 4,
-          "name": "DEP:19 ARR:SpecialAPP19",
-          "airportConditions": "",
+          "id": "7940b509-c665-4b65-b40b-3c4ce2b572f3",
+          "ordinal": 1,
+          "name": "DEP:01 ARR:19",
+          "airportConditions": "ILS Z",
+          "notams": "",
+          "template": "@EYVI_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV [ARPT_COND] @APPROACH ARR RWY19 DEP RWY01\r\n[TL]\r\nWIND RWY19 @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@SCENERY\r\n@CDM\r\n@END_OF_DATA",
+          "externalGenerator": {
+            "enabled": false,
+            "textUrl": "",
+            "voiceUrl": "",
+            "arrival": "",
+            "departure": "",
+            "approaches": "",
+            "remarks": ""
+          }
+        },
+        {
+          "id": "9ad929bb-47b0-474d-ae81-2ff890f96edd",
+          "ordinal": 3,
+          "name": "DEP:19 ARR:19",
+          "airportConditions": "ILS Z",
           "notams": "",
           "template": "@EYVI_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV [ARPT_COND] @APPROACH ARR RWY19 DEP RWY19\r\n[TL]\r\nWIND RWY19 @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@SCENERY\r\n@CDM\r\n@END_OF_DATA",
+          "externalGenerator": {
+            "enabled": false,
+            "textUrl": "",
+            "voiceUrl": "",
+            "arrival": "",
+            "departure": "",
+            "approaches": "",
+            "remarks": ""
+          }
+        },
+        {
+          "id": "7e51fe69-e03a-4f75-801e-81fdce5b5294",
+          "ordinal": 4,
+          "name": "DEP:19 ARR:01",
+          "airportConditions": "ILS Z",
+          "notams": "",
+          "template": "@EYVI_ATIS [ATIS_CODE]\r\n[TIME]\r\n@EXP_NAV [ARPT_COND] @APPROACH ARR RWY01 DEP RWY19\r\n[TL]\r\nWIND RWY01 @TDZ [WIND] [VIS] [RVR] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE] [RECENT_WX]\r\n@AD_TREND [TREND]\r\n[NOTAMS]\r\n@SCENERY\r\n@CDM\r\n@END_OF_DATA",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -10098,7 +10087,23 @@
           "voice": "APPROACH."
         }
       ],
-      "patterns": [],
+      "patterns": [
+        {
+          "pattern": "RWY",
+          "text": "RWY",
+          "voice": "RUNWAY"
+        },
+        {
+          "pattern": "ARR",
+          "text": "ARR",
+          "voice": "ARRIVAL"
+        },
+        {
+          "pattern": "DEP",
+          "text": "DEP",
+          "voice": "DEPARTURE"
+        }
+      ],
       "airportConditionDefinitions": [
         {
           "text": "ILS @Z",
